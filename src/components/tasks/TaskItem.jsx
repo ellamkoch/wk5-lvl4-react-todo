@@ -1,5 +1,5 @@
 //import custom component
-import CustomCheckbox from "@components/shared/Checkbox.component";
+import CustomCheckbox from '@components/shared/Checkbox.component';
 /**
  * Displays a single task as a list item with toggle and delete actions
  *
@@ -12,9 +12,10 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
   /**
    * Handles checkbox changes and notifies the parent component.
    */
-  const handleToggle = () => { //local helper that calls the parent callback onToggleComplete
+  const handleToggle = () => {
+    //local helper that calls the parent callback onToggleComplete
     onToggleComplete(task.id, !task.is_complete); //sends the task id and new completed value
-     //so the parent can update the database and state accordingly.
+    //so the parent can update the database and state accordingly.
   };
 
   /**
@@ -23,19 +24,16 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
   const handleDelete = () => {
     onDelete(task.id);
   };
-//within this, if a title is checked, the task is marked as complete. same as if the checkbox is checked.
+  //within this, if a title is checked, the task is marked as complete. same as if the checkbox is checked.
   return (
     <li className="task-item group flex items-center justify-between gap-3 px-5 py-3">
       <label className="task-item__content text-sm flex flex-1 cursor-pointer items-center gap-3">
-        <CustomCheckbox
-          checked={task.is_complete}
-          onChange={handleToggle}
-        />
+        <CustomCheckbox checked={task.is_complete} onChange={handleToggle} />
         <span
           className={
             task.is_complete
-              ? "task-item__title text-muted-foreground line-through"
-              : "task-item__title text-foreground"
+              ? 'task-item__title text-muted-foreground line-through'
+              : 'task-item__title text-foreground'
           }
         >
           {task.title}

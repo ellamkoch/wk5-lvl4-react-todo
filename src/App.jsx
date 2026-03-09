@@ -1,7 +1,7 @@
 //This file decides what page content goes inside the layout
 
-import MainLayout from "@components/layout/MainLayout.jsx";//imports header/footer, hero, centering
-import TaskList from "@components/tasks/TaskList.jsx";//imports todo app UI
+import MainLayout from '@components/layout/MainLayout.jsx'; //imports header/footer, hero, centering
+import TaskList from '@components/tasks/TaskList.jsx'; //imports todo app UI
 
 /**
  * Root App component.

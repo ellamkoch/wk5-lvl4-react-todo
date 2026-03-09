@@ -2,13 +2,9 @@
 //     * Style Component: Title
 //     * A reusable title component for consistent styling of headings.
 
-const Title =( { children, hLevel = 1, className = "" }) => {
-    const Tag =`h${hLevel}`;
-    return (
-        <Tag className={`font-bold ${className}`}>
-            {children}
-        </Tag>
-    );
+const Title = ({ children, hLevel = 1, className = '' }) => {
+  const Tag = `h${hLevel}`;
+  return <Tag className={`font-bold ${className}`}>{children}</Tag>;
 };
 
 export default Title;

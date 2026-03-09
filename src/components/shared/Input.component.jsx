@@ -1,7 +1,15 @@
 /* Input.component.jsx */
 //This file is for an input component that has a reusable structure.
 
-const Input = ({ id, type = "text", placeholder = "", value, onChange, className = "", disabled }) => {
+const Input = ({
+  id,
+  type = 'text',
+  placeholder = '',
+  value,
+  onChange,
+  className = '',
+  disabled,
+}) => {
   return (
     <input
       id={id}

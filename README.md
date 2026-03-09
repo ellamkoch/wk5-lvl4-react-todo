@@ -1,11 +1,141 @@
 # wk5-lvl4-react-todo
 
-This is the repo for my Wk 5, Level 4 Assignment, to build and deploy a React Todo SPA to s3+Serve via CloudFront.
+This repository contains my Week 5 – Level 4 assignment for CodeX.
+The goal of this project is to build and deploy a React Todo Single Page Application (SPA) to AWS using S3 and CloudFront.
 
-## Goal:
+The UI for this project is based on the
+[Frontend Mentor Todo App Challenge](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+
+## Assignment Goals
 
 1.  Build a React Todo SPA locally.
-2.  Upload the build output to their private S3 bucket (Block Public Access ON).
-3.  Confirm the site loads via the CloudFront HTTPS URL.
-4.  Confirm SPA routing works (refresh on a route returns the app, not 403/404).
-5.  (Optional) Point a Cloudflare subdomain to CloudFront with HTTPS.
+2.  Upload the production build output to a **private S3 bucket** (Block Public Access ON).
+3.  Serve the application through **CloudFront over HTTPS** .
+4.  Confirm **SPA routing works correctly** (refreshing routes returns the app instead of a 403/404 error).
+5.  _(Optional)_ Configure a **Cloudflare subdomain** pointing to the CloudFront distribution.
+
+## Overview
+
+### The Challenge
+
+Users should be able to:
+
+- Add new todos
+- Mark todos as complete
+- Delete todos
+- Filter todos by:
+  - All
+  - Active
+  - Completed
+- Clear all completed todos
+- Toggle light and dark mode
+- See hover states for interactive elements
+- View an optimal layout across screen sizes
+
+### Screenshot
+
+_(Add a screenshot of the running app here once captured)_
+
+### Links
+
+Solution URL: _(Frontend Mentor solution link)_
+
+Live Site URL: _(CloudFront URL after deployment)_
+
+## My Process
+
+### Built With
+
+- React
+- Vite
+- Tailwind CSS
+- shadcn/ui components
+- React hooks (`useState`, `useEffect`, `useMemo`)
+- Browser **localStorage** for persistence
+
+### What I Learned
+
+This project reinforced several important React patterns, particularly around **state management, derived state, and separating UI from logic** .
+
+#### Custom Hooks for Application Logic
+
+Instead of placing task logic directly inside components, I created a **custom hook (**`**useTasks**`**)** that manages:
+
+- adding tasks
+- toggling completion
+- deleting tasks
+- clearing completed tasks
+- persisting tasks to storage
+
+This keeps the UI components focused on rendering while the hook handles application behavior.
+
+Example:
+
+```
+const addTask = (title) => {
+  if (!title) return;
+
+  const newTask = {
+    id: crypto.randomUUID(),
+    title,
+    is_complete: false
+  };
+
+  setTasks((prev) => [newTask, ...prev]);
+};
+```
+
+#### Derived State with `useMemo`
+
+To avoid unnecessary recalculations, derived values such as totals and filtered task lists are computed using `useMemo`.
+
+```
+const visibleTasks = useMemo(() => {
+  return tasks.filter((task) => {
+    if (filter === "active") return !task.is_complete;
+    if (filter === "completed") return task.is_complete;
+    return true;
+  });
+}, [tasks, filter]);
+```
+
+#### Refactoring from Supabase to Local Storage
+
+Earlier iterations of this project used **Supabase** as a backend for storing tasks.
+
+For this assignment, persistence was simplified by moving the data layer to **browser localStorage** .
+
+Tasks are loaded when the application mounts:
+
+```
+**useEffect**(() => {
+  **const** **storedTasks** **=** **localStorage****.**getItem(**TODO_STORAGE_KEY**);
+  **if** (**!****storedTasks**) **return**;
+
+  **setTasks**(**JSON****.**parse(**storedTasks**));
+}, []);
+```
+
+Whenever tasks change, they are written back to local storage:
+
+```
+useEffect(() => {
+  localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(tasks));
+}, [tasks]);
+```
+
+This allows the app to persist data across refreshes without requiring a backend.
+
+## Continued Development
+
+Possible future improvements:
+
+- Implement drag-and-drop task ordering
+- Reintroduce backend persistence (Supabase or another API)
+- Add automated tests for the custom hooks
+- Improve accessibility for keyboard navigation
+
+## Author
+
+Ella Koch
+[Frontend Mentor Profile](https://www.frontendmentor.io/profile/ellamkoch)

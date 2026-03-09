@@ -6,12 +6,9 @@
  * @param {(checked: boolean) => void} onChange - Called when checkbox toggles
  */
 
-import { Checkbox } from "@/components/ui/checkbox";
-
-
+import { Checkbox } from '@/components/ui/checkbox';
 
 const CustomCheckbox = ({ checked, onChange }) => {
-
   return (
     <Checkbox
       checked={checked}

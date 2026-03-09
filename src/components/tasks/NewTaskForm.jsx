@@ -1,9 +1,7 @@
-
 //react import
-import { useState } from "react";
+import { useState } from 'react';
 //component imports
-import Input from "@components/shared/Input.component";
-
+import Input from '@components/shared/Input.component';
 
 /**
  * NewTaskForm lets the user add a new task.
@@ -12,27 +10,29 @@ import Input from "@components/shared/Input.component";
  * @param {(title: string) => Promise<void> | void} props.onAddTask
  *        Callback invoked when the form is submitted with a non-empty title.
  */
-const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the component here.
+const NewTaskForm = ({ onAddTask }) => {
+  //destructuring the prop for the component here.
   //setting default use state variables for the component
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
   //function to handle the form submit + validation, then calls parent callback
   const handleSubmit = async (event) => {
-    event.preventDefault();//prevents the page refresh
+    event.preventDefault(); //prevents the page refresh
 
-    const trimmed = title.trim();//sets a variable to store the trimmed title and trims the title of any extra space
+    const trimmed = title.trim(); //sets a variable to store the trimmed title and trims the title of any extra space
     //trimming off xtra space is important as it helps cut down on how much is being sent to/from the api,
     // which can equal credits for a plan or bytes.
 
     if (!trimmed) {
-      setError("Task title cannot be empty.");//returns this msg if title is empty
+      setError('Task title cannot be empty.'); //returns this msg if title is empty
       return;
     }
 
-    if (trimmed.length > 80) { //returns this msg if title length is greater than 80 characters
-      setError("Task title cannot exceed 80 characters.");
+    if (trimmed.length > 80) {
+      //returns this msg if title length is greater than 80 characters
+      setError('Task title cannot exceed 80 characters.');
       return;
     }
     //preparing for submit here
@@ -41,26 +41,26 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
 
     //calling the parent function
     try {
-      await onAddTask(trimmed);//await allows async database calls
-      setTitle('');//clears the input after a task has been successfully added
+      await onAddTask(trimmed); //await allows async database calls
+      setTitle(''); //clears the input after a task has been successfully added
     } catch (formError) {
-      console.log(formError);//console logs the error msg and puts error msg on the screen with msg below.
-      setError("Failed to add a task. Error message: " + formError?.message);//?.message is optional chaining which helps prevent crashes if error is undefined.
+      console.log(formError); //console logs the error msg and puts error msg on the screen with msg below.
+      setError('Failed to add a task. Error message: ' + formError?.message); //?.message is optional chaining which helps prevent crashes if error is undefined.
 
       //automatically clears the error after 5 seconds
       setTimeout(() => {
-        setError("");
+        setError('');
       }, 5000);
       //this always runs and prevents stuck loading states, even if added task fails
     } finally {
       setSubmitting(false);
     }
   };
-//below is what's returned on submit of the added task, error text and what happens to the button while a task is being added.
-//htmlFor is a react rule for screen reader accessibility
-//disabled in the input submit prevents double posting. Input value there comes from the state, not the DOM as its occurring on the onChange event.
-//submit button is disabled if submitting or the input is empty after trimming. text updates based upon state of adding or add with ternary operator.
-//{error &&} line is conditional rendering and only shows when the error exists.
+  //below is what's returned on submit of the added task, error text and what happens to the button while a task is being added.
+  //htmlFor is a react rule for screen reader accessibility
+  //disabled in the input submit prevents double posting. Input value there comes from the state, not the DOM as its occurring on the onChange event.
+  //submit button is disabled if submitting or the input is empty after trimming. text updates based upon state of adding or add with ternary operator.
+  //{error &&} line is conditional rendering and only shows when the error exists.
   return (
     <form onSubmit={handleSubmit} className="new-task-form px-5 py-1 mb-2">
       <label htmlFor="task-title" className="sr-only">
@@ -68,20 +68,20 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
       </label>
 
       <div className="flex items-center mt-3 gap-3">
-         <span
-        aria-hidden="true"
-        className="h-5 w-5 rounded-full border border-border"// does the circle next to the new todo
-      />
-      <Input
-        id="task-title"
-        type="text"
-        placeholder="Create a new todo…"
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
-        disabled={submitting}
-        className="flex-1"
-      />
-    </div>
+        <span
+          aria-hidden="true"
+          className="h-5 w-5 rounded-full border border-border" // does the circle next to the new todo
+        />
+        <Input
+          id="task-title"
+          type="text"
+          placeholder="Create a new todo…"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          disabled={submitting}
+          className="flex-1"
+        />
+      </div>
       {/* <button type="submit"
       disabled={submitting || !title.trim()}>
         {submitting ? "Adding…" : "Add"}

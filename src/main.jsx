@@ -3,7 +3,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 //style imports
-import "@styles/index.css";
+import '@styles/index.css';
 // import '@styles/main.scss';
 //app import
 import App from '@/App.jsx';
@@ -17,7 +17,7 @@ const rootElement = document.getElementById('root');
 // Wrap the app in theme provider so all components can access theme context (light/dark mode)
 createRoot(rootElement).render(
   <StrictMode>
-    <ThemeProvider defaultTheme='dark'>
+    <ThemeProvider defaultTheme="dark">
       <App />
     </ThemeProvider>
   </StrictMode>,

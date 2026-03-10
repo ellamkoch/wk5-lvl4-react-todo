@@ -20,17 +20,17 @@ The UI for this project is based on the
 
 Users should be able to:
 
-- Add new todos
-- Mark todos as complete
-- Delete todos
-- Filter todos by:
-  - All
-  - Active
-  - Completed
-- Clear all completed todos
-- Toggle light and dark mode
-- See hover states for interactive elements
-- View an optimal layout across screen sizes
+*   Add new todos
+*   Mark todos as complete
+*   Delete todos
+*   Filter todos by:
+    *   All
+    *   Active
+    *   Completed
+*   Clear all completed todos
+*   Toggle light and dark mode
+*   See hover states for interactive elements
+*   View an optimal layout across screen sizes
 
 ### Screenshot
 
@@ -46,12 +46,12 @@ Live Site URL: _(CloudFront URL after deployment)_
 
 ### Built With
 
-- React
-- Vite
-- Tailwind CSS
-- shadcn/ui components
-- React hooks (`useState`, `useEffect`, `useMemo`)
-- Browser **localStorage** for persistence
+*   React
+*   Vite
+*   Tailwind CSS
+*   shadcn/ui components
+*   React hooks (`useState`, `useEffect`, `useMemo`)
+*   Browser **localStorage** for persistence
 
 ### What I Learned
 
@@ -61,11 +61,11 @@ This project reinforced several important React patterns, particularly around **
 
 Instead of placing task logic directly inside components, I created a **custom hook (**`**useTasks**`**)** that manages:
 
-- adding tasks
-- toggling completion
-- deleting tasks
-- clearing completed tasks
-- persisting tasks to storage
+*   adding tasks
+*   toggling completion
+*   deleting tasks
+*   clearing completed tasks
+*   persisting tasks to storage
 
 This keeps the UI components focused on rendering while the hook handles application behavior.
 
@@ -130,10 +130,10 @@ This allows the app to persist data across refreshes without requiring a backend
 
 Possible future improvements:
 
-- Implement drag-and-drop task ordering
-- Reintroduce backend persistence (Supabase or another API)
-- Add automated tests for the custom hooks
-- Improve accessibility for keyboard navigation
+*   Implement drag-and-drop task ordering
+*   Reintroduce backend persistence (Supabase or another API)
+*   Add automated tests for the custom hooks
+*   Improve accessibility for keyboard navigation
 
 ## Author
 

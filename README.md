@@ -8,11 +8,11 @@ The UI for this project is based on the
 
 ## Assignment Goals
 
-1.  Build a React Todo SPA locally.
-2.  Upload the production build output to a **private S3 bucket** (Block Public Access ON).
-3.  Serve the application through **CloudFront over HTTPS** .
-4.  Confirm **SPA routing works correctly** (refreshing routes returns the app instead of a 403/404 error).
-5.  _(Optional)_ Configure a **Cloudflare subdomain** pointing to the CloudFront distribution.
+1. Build a React Todo SPA locally.
+2. Upload the production build output to a **private S3 bucket** (Block Public Access ON).
+3. Serve the application through **CloudFront over HTTPS** .
+4. Confirm **SPA routing works correctly** (refreshing routes returns the app instead of a 403/404 error).
+5. _(Optional)_ Configure a **Cloudflare subdomain** pointing to the CloudFront distribution.
 
 ## Overview
 
@@ -20,17 +20,17 @@ The UI for this project is based on the
 
 Users should be able to:
 
-*   Add new todos
-*   Mark todos as complete
-*   Delete todos
-*   Filter todos by:
-    *   All
-    *   Active
-    *   Completed
-*   Clear all completed todos
-*   Toggle light and dark mode
-*   See hover states for interactive elements
-*   View an optimal layout across screen sizes
+- Add new todos
+- Mark todos as complete
+- Delete todos
+- Filter todos by:
+  - All
+  - Active
+  - Completed
+- Clear all completed todos
+- Toggle light and dark mode
+- See hover states for interactive elements
+- View an optimal layout across screen sizes
 
 ### Screenshot
 
@@ -46,12 +46,12 @@ Live Site URL: _(CloudFront URL after deployment)_
 
 ### Built With
 
-*   React
-*   Vite
-*   Tailwind CSS
-*   shadcn/ui components
-*   React hooks (`useState`, `useEffect`, `useMemo`)
-*   Browser **localStorage** for persistence
+- React
+- Vite
+- Tailwind CSS
+- shadcn/ui components
+- React hooks (`useState`, `useEffect`, `useMemo`)
+- Browser **localStorage** for persistence
 
 ### What I Learned
 
@@ -61,11 +61,11 @@ This project reinforced several important React patterns, particularly around **
 
 Instead of placing task logic directly inside components, I created a **custom hook (**`**useTasks**`**)** that manages:
 
-*   adding tasks
-*   toggling completion
-*   deleting tasks
-*   clearing completed tasks
-*   persisting tasks to storage
+- adding tasks
+- toggling completion
+- deleting tasks
+- clearing completed tasks
+- persisting tasks to storage
 
 This keeps the UI components focused on rendering while the hook handles application behavior.
 
@@ -130,10 +130,17 @@ This allows the app to persist data across refreshes without requiring a backend
 
 Possible future improvements:
 
-*   Implement drag-and-drop task ordering
-*   Reintroduce backend persistence (Supabase or another API)
-*   Add automated tests for the custom hooks
-*   Improve accessibility for keyboard navigation
+- **Drag and drop task reordering**
+  Implement drag-and-drop sorting of tasks. This would introduce index-based array updates using `slice()` and `splice()` to move tasks within the list while keeping React state immutable.
+- **Backend persistence**
+  Reintroduce a backend layer (Supabase or another API) so tasks can sync across devices instead of relying only on browser localStorage.
+  Create a local db for the backend instead of using Supbase or something similar.
+- **Improved accessibility**
+  Add better keyboard navigation and ARIA support for task controls, filtering, and theme toggling.
+- **Automated testing**
+  Add tests for the `useTasks` hook and task filtering logic to validate behavior such as adding, toggling, deleting, and clearing completed tasks.
+- **Task metadata**
+  Extend tasks to support additional properties such as due dates, priority levels, or categories.
 
 ## Author
 

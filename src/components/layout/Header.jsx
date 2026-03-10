@@ -5,6 +5,7 @@ import ThemeToggle from '@components/shared/ThemeToggle.component';
 import Title from '@components/shared/Title.component';
 // import { Button } from "@components/ui/button";
 import { useTheme } from '@hooks/useTheme';
+import NavButtons from '@components/shared/NavButtons.component';
 
 export default function Header() {
   //used to access the global theme state of light/dark mode
@@ -20,7 +21,7 @@ export default function Header() {
       <Title hLevel={1} className="text-4xl font-semibold tracking-[0.4em] text-white">
         TODO
       </Title>
-
+      <NavButtons/>
       <ThemeToggle isDark={isDark} onToggle={handleThemeChange} />
     </header>
   );

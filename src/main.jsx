@@ -2,6 +2,7 @@
 //react imports
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 //style imports
 import '@styles/index.css';
 // import '@styles/main.scss';
@@ -17,8 +18,10 @@ const rootElement = document.getElementById('root');
 // Wrap the app in theme provider so all components can access theme context (light/dark mode)
 createRoot(rootElement).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="dark">
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider defaultTheme="dark">
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </StrictMode>,
 );

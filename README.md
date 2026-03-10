@@ -50,8 +50,31 @@ Live Site URL: _(CloudFront URL after deployment)_
 - Vite
 - Tailwind CSS
 - shadcn/ui components
+- React Router for SPA navigation
 - React hooks (`useState`, `useEffect`, `useMemo`)
 - Browser **localStorage** for persistence
+
+## Project Structure
+
+src/
+├── components/
+│   ├── layout/        # Header, Footer, and layout-related components
+│   ├── shared/        # Reusable UI components (Title, ThemeToggle, NavButtons)
+│   ├── tasks/         # Task list and todo-related UI
+│   └── ui/            # shadcn/ui component primitives
+│
+├── hooks/             # Custom React hooks (useTasks, useTheme)
+│
+├── pages/             # Routed page components (AboutPage, NotFoundPage)
+│
+├── router/            # AppRouter with React Router route definitions
+│
+├── providers/         # Global providers (ThemeProvider)
+│
+├── styles/            # Global styles and Tailwind configuration
+│
+├── App.jsx            # Root application component
+└── main.jsx           # Application entry point
 
 ### What I Learned
 
@@ -99,6 +122,20 @@ const visibleTasks = useMemo(() => {
 }, [tasks, filter]);
 ```
 
+#### Client-Side Routing with React Router
+
+The application uses **React Router** to implement client-side routing for the single page application.
+
+Three routes are defined:
+
+- `/` – main Todo list page
+- `/about` – information about the project
+- `*` – fallback route for unknown paths
+
+Navigation is implemented using `NavLink`, allowing the active page to be visually highlighted in the navigation bar.
+
+This routing structure will allow the deployed application to demonstrate proper **SPA refresh behavior** when served through CloudFront.
+
 #### Refactoring from Supabase to Local Storage
 
 Earlier iterations of this project used **Supabase** as a backend for storing tasks.
@@ -108,11 +145,11 @@ For this assignment, persistence was simplified by moving the data layer to **br
 Tasks are loaded when the application mounts:
 
 ```
-**useEffect**(() => {
-  **const** **storedTasks** **=** **localStorage****.**getItem(**TODO_STORAGE_KEY**);
-  **if** (**!****storedTasks**) **return**;
+useEffect(() => {
+  const storedTasks = localStorage.getItem(TODO_STORAGE_KEY);
+  if (!storedTasks) return;
 
-  **setTasks**(**JSON****.**parse(**storedTasks**));
+  setTasks(JSON.parse(storedTasks));
 }, []);
 ```
 

@@ -22,7 +22,7 @@ const NewTaskForm = ({ onAddTask }) => {
     event.preventDefault(); //prevents the page refresh
 
     const trimmed = title.trim(); //sets a variable to store the trimmed title and trims the title of any extra space
-    //trimming off xtra space is important as it helps cut down on how much is being sent to/from the api,
+    //trimming off extra space is important as it helps cut down on how much is being sent to/from the api,
     // which can equal credits for a plan or bytes.
 
     if (!trimmed) {

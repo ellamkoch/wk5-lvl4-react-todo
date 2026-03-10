@@ -6,7 +6,7 @@ import { Button } from '@components/ui/button';
 import { ButtonGroup, ButtonGroupSeparator } from '@components/ui/button-group';
 
 function NavButtons() {
-  const baseBtn = 'text-lg text-white hover:bg-transparent transition-transform duration-150 hover:scale-[1.03]';
+  const baseBtn = 'text-lg text-white hover:underline bg-transparent transition-transform duration-150 hover:scale-[1.03]';
 
 const navLinkClass = ({ isActive }) =>
   isActive

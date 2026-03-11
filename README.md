@@ -32,15 +32,25 @@ Users should be able to:
 - See hover states for interactive elements
 - View an optimal layout across screen sizes
 
-### Screenshot
+### Screenshots of App
 
-_(Add a screenshot of the running app here once captured)_
+[Dark Mode Todo](C:\Users\Ella\Desktop\CodeX\Level-4\wk5-lvl4-react-todo\screenshots\darkmodetodos.png)
+
+[Light Mode Todo](C:\Users\Ella\Desktop\CodeX\Level-4\wk5-lvl4-react-todo\screenshots\lightmodetodos.png)
+
+[Light Mode About Page](C:\Users\Ella\Desktop\CodeX\Level-4\wk5-lvl4-react-todo\screenshots\lightmodeaboutpage.png)
+
+[Light Mode Not Found Page](C:\Users\Ella\Desktop\CodeX\Level-4\wk5-lvl4-react-todo\screenshots\lightmodenotfoundpage.png)
+
+### Assigment Screenshots
+
+[Assignment Screenshots](C:\Users\Ella\Desktop\CodeX\Level-4\wk5-lvl4-react-todo\screenshots\wk5_assignment_2_screenshots.pdf)
 
 ### Links
 
-Solution URL: _(Frontend Mentor solution link)_
+[Solution URL](https://github.com/ellamkoch/wk5-lvl4-react-todo)
 
-Live Site URL: _(CloudFront URL after deployment)_
+[Live Site URL](https://d1lf3b03q965y2.cloudfront.net/)
 
 ## My Process
 
@@ -54,7 +64,17 @@ Live Site URL: _(CloudFront URL after deployment)_
 - React hooks (`useState`, `useEffect`, `useMemo`)
 - Browser **localStorage** for persistence
 
-## Project Structure
+### Features
+
+- Add, complete, and delete tasks
+- Filter tasks by status (All, Active, Completed)
+- Clear completed tasks
+- Persistent task storage using localStorage
+- Light and dark mode theme toggle
+- Responsive layout
+- Client-side routing with React Router
+
+### Project Structure
 
 src/
 ├── components/
@@ -75,6 +95,18 @@ src/
 │
 ├── App.jsx            # Root application component
 └── main.jsx           # Application entry point
+
+### Run Locally
+
+Clone the project: `git clone https://github.com/YOUR-USERNAME/wk5-lvl4-react-todo.git`
+
+Navigate into the project directory: `cd wk5-lvl4-react-todo`
+
+Install dependencies: `npm install`
+
+Start the development server: `npm run dev`
+
+Then open the local development URL shown in the terminal (usually `http://localhost:5173`).
 
 ### What I Learned
 
@@ -183,3 +215,4 @@ Possible future improvements:
 
 Ella Koch
 [Frontend Mentor Profile](https://www.frontendmentor.io/profile/ellamkoch)
+[GitHub Repo](https://github.com/ellamkoch)

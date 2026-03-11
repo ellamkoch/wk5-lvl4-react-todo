@@ -21,7 +21,7 @@ export default function Header() {
       <Title hLevel={1} className="text-4xl font-semibold tracking-[0.4em] text-white">
         TODO
       </Title>
-      <NavButtons/>
+      <NavButtons />
       <ThemeToggle isDark={isDark} onToggle={handleThemeChange} />
     </header>
   );

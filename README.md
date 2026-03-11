@@ -78,23 +78,23 @@ Users should be able to:
 
 src/
 ├── components/
-│   ├── layout/        # Header, Footer, and layout-related components
-│   ├── shared/        # Reusable UI components (Title, ThemeToggle, NavButtons)
-│   ├── tasks/         # Task list and todo-related UI
-│   └── ui/            # shadcn/ui component primitives
+│ ├── layout/ # Header, Footer, and layout-related components
+│ ├── shared/ # Reusable UI components (Title, ThemeToggle, NavButtons)
+│ ├── tasks/ # Task list and todo-related UI
+│ └── ui/ # shadcn/ui component primitives
 │
-├── hooks/             # Custom React hooks (useTasks, useTheme)
+├── hooks/ # Custom React hooks (useTasks, useTheme)
 │
-├── pages/             # Routed page components (AboutPage, NotFoundPage)
+├── pages/ # Routed page components (AboutPage, NotFoundPage)
 │
-├── router/            # AppRouter with React Router route definitions
+├── router/ # AppRouter with React Router route definitions
 │
-├── providers/         # Global providers (ThemeProvider)
+├── providers/ # Global providers (ThemeProvider)
 │
-├── styles/            # Global styles and Tailwind configuration
+├── styles/ # Global styles and Tailwind configuration
 │
-├── App.jsx            # Root application component
-└── main.jsx           # Application entry point
+├── App.jsx # Root application component
+└── main.jsx # Application entry point
 
 ### Run Locally
 

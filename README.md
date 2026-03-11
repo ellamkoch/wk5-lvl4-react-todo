@@ -100,6 +100,11 @@ src/
 
 Clone the project: `git clone https://github.com/YOUR-USERNAME/wk5-lvl4-react-todo.git`
 
+#### Requirements
+
+- Node.js (v18 or newer recommended)
+- npm
+
 Navigate into the project directory: `cd wk5-lvl4-react-todo`
 
 Install dependencies: `npm install`

@@ -1,21 +1,23 @@
-/** App.jsx
- * This file decides what page content goes inside the layout
- */
+import { Navigate, Route, Routes } from 'react-router-dom';
+import LoginPage from '@/components/auth/LoginPage.jsx';
+import ProtectedRoute from '@/components/auth/ProtectedRoute.jsx';
+import RegisterPage from '@/components/auth/RegisterPage.jsx';
+import TodosPage from '@/components/tasks/TodosPage.jsx';
 
-import MainLayout from '@components/layout/MainLayout.jsx'; // imports header/footer, hero, centering
-import AppRouter from '@/router/AppRouter.jsx';
-
-/**
- * Root App component.
- * Renders the app router inside the shared layout.
- * We're using a single page application structure for simplicity.
- *
- * @returns {JSX.Element} The App component.
- */
 export default function App() {
   return (
-    <MainLayout>
-      <AppRouter />
-    </MainLayout>
+    <Routes>
+      <Route path="/" element={<Navigate to="/todos" replace />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route
+        path="/todos"
+        element={
+          <ProtectedRoute>
+            <TodosPage />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
   );
 }

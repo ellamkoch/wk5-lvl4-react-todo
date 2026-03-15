@@ -6,6 +6,7 @@ import Title from '@components/shared/Title.component';
 // import { Button } from "@components/ui/button";
 import { useTheme } from '@hooks/useTheme';
 import NavButtons from '@components/shared/NavButtons.component';
+import LogoutButton from "@components/auth/LogoutButton.component";
 
 export default function Header() {
   //used to access the global theme state of light/dark mode
@@ -23,6 +24,7 @@ export default function Header() {
       </Title>
       <NavButtons />
       <ThemeToggle isDark={isDark} onToggle={handleThemeChange} />
+      <LogoutButton />
     </header>
   );
 }
